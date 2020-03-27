@@ -11,7 +11,7 @@ const formSearch = document.querySelector('.form-search'),
 const citiesApi = 'dataBase/cities.json',
       proxy = 'https://cors-anywhere.herokuapp.com/',
       API_KEY = 'd5e49fe6f4fd99c938ee8349da244573',
-      calendar = 'http://min-prices.aviasales.ru/calendar_preload',
+      calendar = 'https://min-prices.aviasales.ru/calendar_preload',
       MAX_COUNT = 7;                                  //КОЛИЧЕСТВО ВЫВОДИМЫХ НИЖЕ КАРТОЧЕК
 
 
@@ -219,7 +219,7 @@ formSearch.addEventListener('submit', (event) => {                   // УБИР
         // С АВИАСЕЙЛС API ЗАПРОС
     const requestData = '?depart_date=' + formData.when + '&origin=' + formData.from.code + '&destination=' + formData.to.code + '&one_way=true&token=' + API_KEY;
               
-    getData(proxy + calendar + requestData, (response) => {
+    getData(calendar + requestData, (response) => {
           renderCheap(response, formData.when);
     }, error => {
       confirm('В этом направлении нет рейсов!');
