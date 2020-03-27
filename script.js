@@ -219,7 +219,7 @@ formSearch.addEventListener('submit', (event) => {                   // УБИР
         // С АВИАСЕЙЛС API ЗАПРОС
     const requestData = '?depart_date=' + formData.when + '&origin=' + formData.from.code + '&destination=' + formData.to.code + '&one_way=true&token=' + API_KEY;
               
-    getData(calendar + requestData, (response) => {
+    getData(proxy + calendar + requestData, (response) => {
           renderCheap(response, formData.when);
     }, error => {
       confirm('В этом направлении нет рейсов!');
